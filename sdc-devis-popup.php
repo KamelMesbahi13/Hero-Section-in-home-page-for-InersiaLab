@@ -187,9 +187,11 @@ function sdc_devis_popup_render() {
     .sdc-devis-popup {
         display: flex;
         flex-direction: row;
+        align-items: stretch;
         direction: ltr;
         max-width: 980px;
         width: 94%;
+        height: auto;
         max-height: 92vh;
         background: #ffffff;
         border-radius: 20px;
@@ -428,16 +430,15 @@ function sdc_devis_popup_render() {
  
     /* ═══ RIGHT PANEL ═════════════════════════════════════════════ */
     .sdc-devis-right {
-        flex: 0 0 50%; /* 50% width */
+        flex: 1 1 50%; /* 50% width, can shrink/grow */
         background: #ffffff !important;
         background-image: radial-gradient(circle at 90% 85%, rgba(244, 96, 54, 0.07) 0%, transparent 65%) !important; /* Orange gradient glow in bottom-right */
         padding: 44px 40px;
         overflow-y: auto;
+        overflow-x: hidden;
         position: relative;
-        min-height: 420px;
-        max-height: 80vh !important;
-        overscroll-behavior: contain !important;
-        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
     }
     .sdc-devis-right::-webkit-scrollbar { width: 4px; }
     .sdc-devis-right::-webkit-scrollbar-track { background: transparent; }
@@ -614,10 +615,10 @@ function sdc_devis_popup_render() {
         overflow: hidden;
         opacity: 0;
         margin-bottom: 0;
-        transition: max-height 0.4s ease, opacity 0.35s ease 0.05s, margin-bottom 0.3s ease;
+        transition: max-height 0.6s ease, opacity 0.35s ease 0.05s, margin-bottom 0.3s ease;
     }
     .sdc-devis-field-sub.sdc-visible {
-        max-height: 250px;
+        max-height: 2000px; /* large enough for any number of selected categories */
         opacity: 1;
         margin-bottom: 20px;
     }
@@ -931,7 +932,7 @@ function sdc_devis_popup_render() {
             flex-direction: column !important;
             width: 96% !important;
             max-width: 540px !important;
-            height: auto !important;
+            height: 88vh !important;
             max-height: 88vh !important;
             border-radius: 16px !important;
             box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15) !important;
@@ -942,16 +943,13 @@ function sdc_devis_popup_render() {
             display: none !important;
         }
         .sdc-devis-right {
-            flex: 1 1 auto !important;
+            flex: 1 1 0 !important;
             width: 100% !important;
-            padding: 36px 28px 28px 28px !important;
             min-height: 0 !important;
-            max-height: 76vh !important;
+            padding: 36px 28px 28px 28px !important;
             background: #ffffff !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: flex-start !important;
             overflow-y: auto !important;
+            overflow-x: hidden !important;
             overscroll-behavior: contain !important;
             -webkit-overflow-scrolling: touch !important;
         }
@@ -997,16 +995,11 @@ function sdc_devis_popup_render() {
     @media (max-width: 480px) {
         .sdc-devis-popup {
             width: 96% !important;
+            height: 88vh !important;
             max-height: 88vh !important;
         }
         .sdc-devis-right {
             padding: 32px 20px 24px 20px !important;
-            flex: 1 1 auto !important;
-            min-height: 0 !important;
-            max-height: 76vh !important;
-            overflow-y: auto !important;
-            overscroll-behavior: contain !important;
-            -webkit-overflow-scrolling: touch !important;
         }
         .sdc-devis-dots {
             margin-bottom: 22px !important;
