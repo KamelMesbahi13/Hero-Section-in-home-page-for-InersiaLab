@@ -888,6 +888,9 @@ function sdc_devis_popup_render() {
         right: auto !important;
         left: 20px !important;
     }
+    .sdc-devis-overlay[dir="rtl"] .sdc-devis-popup {
+        flex-direction: row-reverse !important;
+    }
     .sdc-devis-overlay[dir="rtl"] .sdc-devis-left,
     .sdc-devis-overlay[dir="rtl"] .sdc-devis-right {
         direction: rtl;
@@ -902,6 +905,10 @@ function sdc_devis_popup_render() {
     .sdc-devis-overlay[dir="rtl"] .sdc-devis-contact-label {
         margin-right: 0;
         margin-left: 6px;
+    }
+    
+    .sdc-devis-overlay[dir="rtl"] .sdc-devis-actions {
+        flex-direction: row-reverse !important;
     }
     
     /* RTL overrides for the primary button */
@@ -939,14 +946,61 @@ function sdc_devis_popup_render() {
             display: flex !important;
             overflow: hidden !important;
         }
+        /* Mobile left panel: ~30% of popup height, text centered */
         .sdc-devis-left {
+            display: flex !important;
+            flex: 0 0 30vh !important;
+            height: 30vh !important;
+            width: 100% !important;
+            padding: 28px !important;
+            min-height: auto !important;
+            justify-content: center !important;
+            align-items: center !important;
+            flex-direction: column !important;
+            text-align: left !important;
+            transition: flex-basis 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                        height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                        padding 0.4s ease !important;
+        }
+        /* RTL Mobile left panel alignment override */
+        .sdc-devis-overlay[dir="rtl"] .sdc-devis-left {
+            text-align: right !important;
+        }
+        /* Collapsed state: taller strip with breathing room */
+        .sdc-devis-left.sdc-left-collapsed {
+            flex: 0 0 120px !important;
+            height: 120px !important;
+            padding: 20px 28px !important;
+            justify-content: center !important;
+            align-items: flex-start !important;
+        }
+        .sdc-devis-left-content-wrap {
+            gap: 0 !important;
+            justify-content: center !important;
+            height: auto !important;
+            width: 100% !important;
+        }
+        /* Hide checklist and contact on mobile */
+        .sdc-devis-left .sdc-devis-left-middle,
+        .sdc-devis-left .sdc-devis-left-contact {
             display: none !important;
+        }
+        /* Title sizing */
+        .sdc-devis-left-title {
+            font-size: 1.25rem !important;
+            line-height: 1.35 !important;
+            margin: 0 !important;
+            transition: font-size 0.4s ease !important;
+        }
+        .sdc-devis-left.sdc-left-collapsed .sdc-devis-left-title {
+            font-size: 1rem !important;
+            line-height: 1.3 !important;
         }
         .sdc-devis-right {
             flex: 1 1 0 !important;
             width: 100% !important;
             min-height: 0 !important;
-            padding: 36px 28px 28px 28px !important;
+            padding: 28px 24px 24px 24px !important;
             background: #ffffff !important;
             overflow-y: auto !important;
             overflow-x: hidden !important;
@@ -998,8 +1052,24 @@ function sdc_devis_popup_render() {
             height: 88vh !important;
             max-height: 88vh !important;
         }
+        .sdc-devis-left {
+            flex: 0 0 28vh !important;
+            height: 28vh !important;
+            padding: 24px 20px !important;
+        }
+        .sdc-devis-left.sdc-left-collapsed {
+            flex: 0 0 150px !important;
+            height: 150px !important;
+            padding: 22px 20px !important;
+        }
+        .sdc-devis-left-title {
+            font-size: 1.25rem !important;
+        }
+        .sdc-devis-left.sdc-left-collapsed .sdc-devis-left-title {
+            font-size: 1.05rem !important;
+        }
         .sdc-devis-right {
-            padding: 32px 20px 24px 20px !important;
+            padding: 24px 18px 20px 18px !important;
         }
         .sdc-devis-dots {
             margin-bottom: 22px !important;
@@ -1036,7 +1106,7 @@ function sdc_devis_popup_render() {
         .sdc-devis-overlay .sdc-devis-btn-primary {
             min-width: 155px !important;
             height: 46px !important;
-            padding: 0 16px 0 40px !important;
+            padding: 0 16px 0 50px !important;
             font-size: 13.5px !important;
             border-radius: 12px !important;
         }
@@ -1053,7 +1123,7 @@ function sdc_devis_popup_render() {
             left: 15px !important;
         }
         .sdc-devis-overlay[dir="rtl"] .sdc-devis-btn-primary {
-            padding: 0 40px 0 16px !important;
+            padding: 0 50px 0 16px !important;
         }
         .sdc-devis-overlay[dir="rtl"] .sdc-devis-btn-primary::after {
             left: auto !important;
@@ -1311,6 +1381,10 @@ function sdc_devis_popup_render() {
             document.getElementById('sdc-sub-services-container').innerHTML = '';
             subField.classList.remove('sdc-visible');
             
+            // Restore expanded dark panel on mobile
+            var leftPanel = document.querySelector('.sdc-devis-left');
+            if (leftPanel) leftPanel.classList.remove('sdc-left-collapsed');
+            
             nameInput.value = '';
             emailInput.value = '';
             phoneInput.value = '';
@@ -1353,6 +1427,16 @@ function sdc_devis_popup_render() {
                 }
                 
                 serviceSel.value = selectedIndices.join(',');
+                
+                // Animate the mobile left panel: collapse after first selection, expand if all deselected
+                var leftPanel = document.querySelector('.sdc-devis-left');
+                if (leftPanel) {
+                    if (selectedIndices.length > 0) {
+                        leftPanel.classList.add('sdc-left-collapsed');
+                    } else {
+                        leftPanel.classList.remove('sdc-left-collapsed');
+                    }
+                }
                 
                 // Clear sub-service selection
                 subSel.value = '';
