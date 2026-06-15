@@ -20,14 +20,27 @@ function sdc_services_hero_section_shortcode() {
     $request_uri = $_SERVER['REQUEST_URI'] ?? '';
     $is_arabic = (strpos($request_uri, '/ar/') !== false || preg_match('#/ar$#', $request_uri));
     $dir = $is_arabic ? 'rtl' : 'ltr';
-    $arrow_svg = $is_arabic ? '
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sdc-sh-arrow-icon">
-        <line x1="17" y1="17" x2="7" y2="7"></line>
-        <polyline points="17 7 7 7 7 17"></polyline>
-      </svg>' : '
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sdc-sh-arrow-icon">
-        <line x1="7" y1="17" x2="17" y2="7"></line>
-        <polyline points="7 7 17 7 17 17"></polyline>
+
+    $icon_strategy = '
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sdc-sh-card-icon">
+        <circle cx="12" cy="12" r="10"></circle>
+        <circle cx="12" cy="12" r="2"></circle>
+        <line x1="12" y1="2" x2="12" y2="6"></line>
+        <line x1="12" y1="18" x2="12" y2="22"></line>
+        <line x1="2" y1="12" x2="6" y2="12"></line>
+        <line x1="18" y1="12" x2="22" y2="12"></line>
+      </svg>';
+
+    $icon_design = '
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sdc-sh-card-icon">
+        <path d="M12 20h9"></path>
+        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+      </svg>';
+
+    $icon_development = '
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sdc-sh-card-icon">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
       </svg>';
 
     // --- Bilingual Content Assets ---
@@ -35,32 +48,32 @@ function sdc_services_hero_section_shortcode() {
         $desc = 'حلول رقمية مبتكرة ومخصصة لدفع أعمالك إلى الأمام. من استراتيجية العلامة التجارية إلى التطوير التقني، نرافقك في كل خطوة.';
         $headline = 'تصميم منتجات رقمية فعالة وملهمة لنمو أعمالك';
         
-        $card1_title = 'تصميم واجهة وتجربة المستخدم UI/UX';
-        $card1_desc  = 'إنشاء واجهات حديثة ومبتكرة تركز على المستخدم وتضمن تجربة تصفح سلسة.';
-        $card1_url   = '/ar/services#ui-ux';
+        $card1_title = '١. التخطيط والاستراتيجية';
+        $card1_desc  = 'تحديد الأهداف، تحليل متطلباتكم، ورسم خريطة الطريق الواضحة لمشروعكم الرقمي.';
+        $card1_url   = '/ar/services#strategy';
 
-        $card2_title = 'التطوير التقني والويب';
-        $card2_desc  = 'تطوير تطبيقات ويب، تطبيقات جوال ومواقع تعريفية قوية، سريعة وقابلة للتطوير.';
-        $card2_url   = '/ar/services#dev';
+        $card2_title = '٢. التصميم وبناء النموذج';
+        $card2_desc  = 'ابتكار واجهات جذابة، سهلة الاستخدام، ومصممة خصيصاً لتوفير تجربة مستخدم استثنائية.';
+        $card2_url   = '/ar/services#design';
 
-        $card3_title = 'الهوية البصرية والتسويق';
-        $card3_desc  = 'تصميم العلامات التجارية، تحسين محركات البحث والتسويق الرقمي لمضاعفة أثرك.';
-        $card3_url   = '/ar/services#branding';
+        $card3_title = '٣. التطوير والتشغيل';
+        $card3_desc  = 'برمجة عالية الجودة، اختبارات دقيقة، وإطلاق حلول رقمية سريعة، آمنة وقابلة للتوسع.';
+        $card3_url   = '/ar/services#launch';
     } else {
         $desc = 'Des solutions digitales sur mesure pour propulser votre activité. De la stratégie de marque au développement technique, nous vous accompagnons à chaque étape.';
         $headline = 'Concevoir des produits digitaux performants & inspirants pour votre croissance';
 
-        $card1_title = 'Design UI / UX';
-        $card1_desc  = 'Création d’interfaces modernes, intuitives et centrées utilisateur pour vos produits.';
-        $card1_url   = '/services#ui-ux';
+        $card1_title = '1. Stratégie & Cadrage';
+        $card1_desc  = 'Définition des objectifs, analyse de vos besoins et planification de la feuille de route du produit.';
+        $card1_url   = '/services#strategy';
 
-        $card2_title = 'Développement Technique';
-        $card2_desc  = 'Applications web, mobile et sites vitrines performants, sécurisés et évolutifs.';
-        $card2_url   = '/services#dev';
+        $card2_title = '2. Design & UX/UI';
+        $card2_desc  = 'Création d’interfaces élégantes, modernes et optimisées pour assurer une navigation fluide.';
+        $card2_url   = '/services#design';
 
-        $card3_title = 'Branding & Stratégie';
-        $card3_desc  = 'Identité de marque forte, SEO et stratégies de marketing digital pour maximiser votre impact.';
-        $card3_url   = '/services#branding';
+        $card3_title = '3. Développement & Impact';
+        $card3_desc  = 'Programmation robuste, tests rigoureux et déploiement d’un produit final performant.';
+        $card3_url   = '/services#launch';
     }
 
     $img_url = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80';
@@ -188,19 +201,19 @@ function sdc_services_hero_section_shortcode() {
       color: #F46036;
     }
 
-    .sdc-sh-card-arrow {
-      font-size: 1.15rem;
-      font-weight: 600;
+    .sdc-sh-card-icon-wrap {
       color: inherit;
       opacity: 0.35;
-      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), color 0.35s ease, opacity 0.35s ease;
+      transition: color 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
       line-height: 1;
+      display: inline-flex;
+      align-items: center;
     }
 
-    .sdc-sh-card:hover .sdc-sh-card-arrow {
-      transform: translate(0.25rem, -0.25rem); /* Moves top-right */
+    .sdc-sh-card:hover .sdc-sh-card-icon-wrap {
       color: #F46036 !important;
       opacity: 1 !important;
+      transform: scale(1.1);
     }
 
     .sdc-sh-card-desc {
@@ -268,11 +281,6 @@ function sdc_services_hero_section_shortcode() {
     .sdc-services-hero[dir="rtl"] .sdc-sh-card-title {
       letter-spacing: 0;
     }
-
-    .sdc-services-hero[dir="rtl"] .sdc-sh-card:hover .sdc-sh-card-arrow {
-      transform: translate(-0.25rem, -0.25rem); /* Moves top-left in RTL */
-    }
-
 
     /* =========================================
        Responsive Media Queries
@@ -366,29 +374,29 @@ function sdc_services_hero_section_shortcode() {
         <!-- Middle Section: Three Service Cards -->
         <div class="sdc-sh-cards">
           
-          <a href="<?php echo esc_url($card1_url); ?>" class="sdc-sh-card">
+          <div class="sdc-sh-card">
             <div class="sdc-sh-card-header">
               <span class="sdc-sh-card-title"><?php echo esc_html($card1_title); ?></span>
-              <span class="sdc-sh-card-arrow"><?php echo $arrow_svg; ?></span>
+              <span class="sdc-sh-card-icon-wrap"><?php echo $icon_strategy; ?></span>
             </div>
             <p class="sdc-sh-card-desc"><?php echo esc_html($card1_desc); ?></p>
-          </a>
+          </div>
 
-          <a href="<?php echo esc_url($card2_url); ?>" class="sdc-sh-card">
+          <div class="sdc-sh-card">
             <div class="sdc-sh-card-header">
               <span class="sdc-sh-card-title"><?php echo esc_html($card2_title); ?></span>
-              <span class="sdc-sh-card-arrow"><?php echo $arrow_svg; ?></span>
+              <span class="sdc-sh-card-icon-wrap"><?php echo $icon_design; ?></span>
             </div>
             <p class="sdc-sh-card-desc"><?php echo esc_html($card2_desc); ?></p>
-          </a>
+          </div>
 
-          <a href="<?php echo esc_url($card3_url); ?>" class="sdc-sh-card">
+          <div class="sdc-sh-card">
             <div class="sdc-sh-card-header">
               <span class="sdc-sh-card-title"><?php echo esc_html($card3_title); ?></span>
-              <span class="sdc-sh-card-arrow"><?php echo $arrow_svg; ?></span>
+              <span class="sdc-sh-card-icon-wrap"><?php echo $icon_development; ?></span>
             </div>
             <p class="sdc-sh-card-desc"><?php echo esc_html($card3_desc); ?></p>
-          </a>
+          </div>
 
         </div>
 
