@@ -20,7 +20,15 @@ function sdc_services_hero_section_shortcode() {
     $request_uri = $_SERVER['REQUEST_URI'] ?? '';
     $is_arabic = (strpos($request_uri, '/ar/') !== false || preg_match('#/ar$#', $request_uri));
     $dir = $is_arabic ? 'rtl' : 'ltr';
-    $arrow_card = $is_arabic ? '↖' : '↗';
+    $arrow_svg = $is_arabic ? '
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sdc-sh-arrow-icon">
+        <line x1="17" y1="17" x2="7" y2="7"></line>
+        <polyline points="17 7 7 7 7 17"></polyline>
+      </svg>' : '
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sdc-sh-arrow-icon">
+        <line x1="7" y1="17" x2="17" y2="7"></line>
+        <polyline points="7 7 17 7 17 17"></polyline>
+      </svg>';
 
     // --- Bilingual Content Assets ---
     if ($is_arabic) {
@@ -80,9 +88,9 @@ function sdc_services_hero_section_shortcode() {
       max-width: 100vw;
       margin-left: calc(-50vw + 50%);
       margin-right: calc(-50vw + 50%);
-      background-color: #FAF9F6; /* Cream/Ivory brand background */
-      padding: 80px 24px;
+      padding: 180px 24px 80px 24px;
       overflow: hidden;
+      font-family: 'Montserrat', sans-serif !important;
     }
 
     .sdc-sh-container {
@@ -110,11 +118,11 @@ function sdc_services_hero_section_shortcode() {
     .sdc-sh-desc-wrap::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 120px;
-      height: 150px;
-      background-image: radial-gradient(rgba(244, 96, 54, 0.18) 1.5px, transparent 1.5px);
+      top: -40px;
+      left: -60px;
+      width: 220px;
+      height: 140px;
+      background-image: radial-gradient(rgba(244, 96, 54, 0.3) 2.5px, transparent 2.5px);
       background-size: 20px 20px;
       z-index: 1;
       pointer-events: none;
@@ -123,21 +131,12 @@ function sdc_services_hero_section_shortcode() {
     .sdc-sh-desc {
       position: relative;
       z-index: 2;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Montserrat', sans-serif !important;
       font-size: 0.95rem;
       line-height: 1.6;
-      color: #666666;
     }
 
-    /* Headline text styling */
-    .sdc-sh-headline {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: clamp(1.8rem, 4.2vw, 3rem);
-      font-weight: 700;
-      line-height: 1.25;
-      color: #0D1B2A; /* Dark navy color */
-      letter-spacing: -0.015em;
-    }
+    /* Headline uses theme default h1 styles */
 
     /* --- Cards Row Grid --- */
     .sdc-sh-cards {
@@ -150,10 +149,19 @@ function sdc_services_hero_section_shortcode() {
     .sdc-sh-card {
       border-top: 1.5px solid rgba(13, 27, 42, 0.12); /* Navy border line */
       padding-top: 24px;
-      text-decoration: none;
-      color: inherit;
+      text-decoration: none !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
+      color: inherit !important;
       display: block;
       transition: border-color 0.4s ease;
+    }
+    .sdc-sh-card *,
+    .sdc-sh-card:hover *,
+    .sdc-sh-card:focus * {
+      text-decoration: none !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
     }
 
     .sdc-sh-card:hover {
@@ -173,7 +181,6 @@ function sdc_services_hero_section_shortcode() {
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #0D1B2A;
       transition: color 0.35s ease;
     }
 
@@ -184,21 +191,22 @@ function sdc_services_hero_section_shortcode() {
     .sdc-sh-card-arrow {
       font-size: 1.15rem;
       font-weight: 600;
-      color: rgba(13, 27, 42, 0.35);
-      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), color 0.35s ease;
+      color: inherit;
+      opacity: 0.35;
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), color 0.35s ease, opacity 0.35s ease;
       line-height: 1;
     }
 
     .sdc-sh-card:hover .sdc-sh-card-arrow {
       transform: translate(4px, -4px); /* Moves top-right */
-      color: #F46036;
+      color: #F46036 !important;
+      opacity: 1 !important;
     }
 
     .sdc-sh-card-desc {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Montserrat', sans-serif !important;
       font-size: 0.88rem;
       line-height: 1.5;
-      color: #666666;
     }
 
     /* --- Bottom Featured Image --- */
@@ -253,7 +261,8 @@ function sdc_services_hero_section_shortcode() {
 
     .sdc-services-hero[dir="rtl"] .sdc-sh-desc-wrap::before {
       left: auto;
-      right: 0;
+      right: -60px;
+      top: -40px;
     }
 
     .sdc-services-hero[dir="rtl"] .sdc-sh-card-title {
@@ -283,7 +292,7 @@ function sdc_services_hero_section_shortcode() {
 
     @media (max-width: 768px) {
       .sdc-services-hero {
-        padding: 60px 20px;
+        padding: 90px 20px 60px 20px;
       }
 
       .sdc-sh-top {
@@ -303,13 +312,18 @@ function sdc_services_hero_section_shortcode() {
       }
 
       .sdc-sh-desc-wrap::before {
-        width: 90px;
-        height: 120px;
+        width: 180px;
+        height: 100px;
+        left: -20px !important;
+        top: -20px !important;
+      }
+      .sdc-services-hero[dir="rtl"] .sdc-sh-desc-wrap::before {
+        left: auto !important;
+        right: -20px !important;
+        top: -20px !important;
       }
 
-      .sdc-sh-headline {
-        font-size: clamp(1.6rem, 5.5vw, 2.2rem);
-      }
+      /* Headline uses theme default h1 styles */
 
       .sdc-sh-cards {
         grid-template-columns: 1fr;
@@ -351,7 +365,7 @@ function sdc_services_hero_section_shortcode() {
           <a href="<?php echo esc_url($card1_url); ?>" class="sdc-sh-card">
             <div class="sdc-sh-card-header">
               <span class="sdc-sh-card-title"><?php echo esc_html($card1_title); ?></span>
-              <span class="sdc-sh-card-arrow"><?php echo esc_html($arrow_card); ?></span>
+              <span class="sdc-sh-card-arrow"><?php echo $arrow_svg; ?></span>
             </div>
             <p class="sdc-sh-card-desc"><?php echo esc_html($card1_desc); ?></p>
           </a>
@@ -359,7 +373,7 @@ function sdc_services_hero_section_shortcode() {
           <a href="<?php echo esc_url($card2_url); ?>" class="sdc-sh-card">
             <div class="sdc-sh-card-header">
               <span class="sdc-sh-card-title"><?php echo esc_html($card2_title); ?></span>
-              <span class="sdc-sh-card-arrow"><?php echo esc_html($arrow_card); ?></span>
+              <span class="sdc-sh-card-arrow"><?php echo $arrow_svg; ?></span>
             </div>
             <p class="sdc-sh-card-desc"><?php echo esc_html($card2_desc); ?></p>
           </a>
@@ -367,7 +381,7 @@ function sdc_services_hero_section_shortcode() {
           <a href="<?php echo esc_url($card3_url); ?>" class="sdc-sh-card">
             <div class="sdc-sh-card-header">
               <span class="sdc-sh-card-title"><?php echo esc_html($card3_title); ?></span>
-              <span class="sdc-sh-card-arrow"><?php echo esc_html($arrow_card); ?></span>
+              <span class="sdc-sh-card-arrow"><?php echo $arrow_svg; ?></span>
             </div>
             <p class="sdc-sh-card-desc"><?php echo esc_html($card3_desc); ?></p>
           </a>
