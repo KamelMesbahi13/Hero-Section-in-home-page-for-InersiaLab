@@ -301,10 +301,14 @@ function sdc_services_hero_section_shortcode() {
         margin-bottom: 40px;
       }
 
+      .sdc-sh-headline {
+        order: -1 !important;
+      }
+
       .sdc-sh-desc-wrap {
         padding-left: 0;
         padding-right: 0;
-        padding-top: 24px;
+        padding-top: 0 !important;
       }
 
       .sdc-services-hero[dir="rtl"] .sdc-sh-desc-wrap {
