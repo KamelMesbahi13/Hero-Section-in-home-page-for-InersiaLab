@@ -83,7 +83,7 @@ function sdc_devis_popup_render() {
     // ── Left Panel ──
     $panel_title_p1  = $is_arabic ? 'لديك' : 'Vous avez une';
     $panel_title_hl  = $is_arabic ? 'فكرة' : 'idée';
-    $panel_title_p2  = $is_arabic ? 'مشروع في ذهنك؟<br>لنبدأ العمل' : 'de projet en tête ?<br>Commençons ensemble';
+    $panel_title_p2  = $is_arabic ? 'مشروع في ذهنك؟<br class="sdc-br-desktop">لنبدأ العمل' : 'de projet en tête ?<br class="sdc-br-desktop">Commençons ensemble';
     $check1          = $is_arabic ? 'توقع رداً منا في غضون 24 ساعة' : 'Attendez-vous à une réponse sous 24h';
     $check2          = $is_arabic ? 'يمكننا توقيع اتفاقية سرية (NDA) قبل مناقشة مشروعك.' : 'Accord de confidentialité (NDA) possible avant discussion.';
     $check3          = $is_arabic ? 'الوصول إلى خبراء مخصصين لمشروعك' : 'Accès à des experts produit dédiés.';
@@ -935,12 +935,15 @@ function sdc_devis_popup_render() {
 
     /* ═══ RESPONSIVE ═════════════════════════════════════════════ */
     @media (max-width: 768px) {
+        .sdc-br-desktop {
+            display: none !important;
+        }
         .sdc-devis-popup {
             flex-direction: column !important;
             width: 96% !important;
             max-width: 540px !important;
-            height: 88vh !important;
-            max-height: 88vh !important;
+            height: 80vh !important;
+            max-height: 80vh !important;
             border-radius: 16px !important;
             box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15) !important;
             display: flex !important;
@@ -1049,8 +1052,8 @@ function sdc_devis_popup_render() {
     @media (max-width: 480px) {
         .sdc-devis-popup {
             width: 96% !important;
-            height: 88vh !important;
-            max-height: 88vh !important;
+            height: 80vh !important;
+            max-height: 80vh !important;
         }
         .sdc-devis-left {
             flex: 0 0 28vh !important;
@@ -1151,14 +1154,14 @@ function sdc_devis_popup_render() {
                 <div class="sdc-devis-left-content-wrap">
                     <!-- Top Title -->
                     <h2 class="sdc-devis-left-title">
-                        <?php echo $panel_title_p1; ?><br>
+                        <?php echo $panel_title_p1; ?> <br class="sdc-br-desktop">
                         <span class="sdc-highlight">
                             <?php echo $panel_title_hl; ?>
                             <svg class="sdc-underline-curve" viewBox="0 0 100 12" preserveAspectRatio="none">
                                 <path d="M3 8 Q 50 3, 97 8" stroke="#F46036" stroke-width="2" fill="none" stroke-linecap="round"/>
                                 <path d="M8 11 Q 50 6, 92 11" stroke="#F46036" stroke-width="2" fill="none" stroke-linecap="round"/>
                             </svg>
-                        </span><br>
+                        </span> <br class="sdc-br-desktop">
                         <?php echo $panel_title_p2; ?>
                     </h2>
 
