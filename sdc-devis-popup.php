@@ -944,8 +944,8 @@ function sdc_devis_popup_render() {
             flex-direction: column !important;
             width: 96% !important;
             max-width: 540px !important;
-            height: 80vh !important;
-            max-height: 80vh !important;
+            height: 85vh !important;
+            max-height: 85vh !important;
             border-radius: 16px !important;
             box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15) !important;
             display: flex !important;
@@ -1054,8 +1054,8 @@ function sdc_devis_popup_render() {
     @media (max-width: 480px) {
         .sdc-devis-popup {
             width: 96% !important;
-            height: 80vh !important;
-            max-height: 80vh !important;
+            height: 85vh !important;
+            max-height: 85vh !important;
         }
         .sdc-devis-left {
             flex: 0 0 28vh !important;
@@ -1526,6 +1526,11 @@ function sdc_devis_popup_render() {
                 step2.classList.remove('sdc-slide-in-left', 'sdc-slide-in-right');
             }, 420);
 
+            var rightPanel = document.querySelector('.sdc-devis-right');
+            if (rightPanel) {
+                rightPanel.scrollTop = 0;
+            }
+
             dots[0].classList.remove('sdc-active');
             dots[1].classList.add('sdc-active');
         });
@@ -1541,6 +1546,11 @@ function sdc_devis_popup_render() {
             setTimeout(function() {
                 step1.classList.remove('sdc-slide-in-left', 'sdc-slide-in-right');
             }, 420);
+
+            var rightPanel = document.querySelector('.sdc-devis-right');
+            if (rightPanel) {
+                rightPanel.scrollTop = 0;
+            }
 
             dots[1].classList.remove('sdc-active');
             dots[0].classList.add('sdc-active');
