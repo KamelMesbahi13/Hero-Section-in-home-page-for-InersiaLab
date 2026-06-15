@@ -64,7 +64,7 @@ function sdc_hero_section_shortcode() {
       justify-content: center;
       background-color: #FAF9F6;
       overflow: hidden;
-      padding: 80px 24px;
+      padding: 5rem 1.5rem;
     }
 
     .sdc-hero-orb-container {
@@ -72,7 +72,7 @@ function sdc_hero_section_shortcode() {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 850px;
+      width: 53.125rem;
       max-width: 95%;
       height: auto;
       pointer-events: none;
@@ -96,7 +96,7 @@ function sdc_hero_section_shortcode() {
       width: 100%;
       height: auto;
       opacity: 0.2;
-      filter: blur(4px);
+      filter: blur(0.25rem);
       transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
       will-change: transform;
       display: block;
@@ -105,7 +105,7 @@ function sdc_hero_section_shortcode() {
     .sdc-hero-content {
       position: relative;
       z-index: 2;
-      max-width: 820px;
+      max-width: 51.25rem;
       text-align: center;
       width: 100%;
     }
@@ -116,7 +116,7 @@ function sdc_hero_section_shortcode() {
       font-weight: 400;
       line-height: 1.3;
       color: #1a1a1a;
-      margin-bottom: 40px;
+      margin-bottom: 2.5rem;
       letter-spacing: -0.01em;
     }
 
@@ -129,7 +129,7 @@ function sdc_hero_section_shortcode() {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 28px;
+      gap: 1.75rem;
       flex-wrap: wrap;
     }
 
@@ -142,9 +142,9 @@ function sdc_hero_section_shortcode() {
       text-transform: uppercase;
       color: #ffffff;
       background: #F46036;
-      border: 1.5px solid #F46036;
-      border-radius: 50px;
-      padding: 12px 28px;
+      border: 0.094rem solid #F46036;
+      border-radius: 3.125rem;
+      padding: 0.75rem 1.75rem;
       cursor: pointer;
       text-decoration: none;
       transition: background 0.3s ease, color 0.3s ease;
@@ -159,7 +159,7 @@ function sdc_hero_section_shortcode() {
     .sdc-hero-btn-text {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 0.375rem;
       font-family: inherit;
       font-size: 0.85rem;
       font-weight: 500;
@@ -177,7 +177,7 @@ function sdc_hero_section_shortcode() {
     .sdc-hero-btn-text:focus {
       opacity: 0.7;
       text-decoration: underline;
-      text-underline-offset: 4px;
+      text-underline-offset: 0.25rem;
     }
 
     .sdc-hero-btn-text .sdc-arrow {
@@ -186,7 +186,7 @@ function sdc_hero_section_shortcode() {
     }
 
     .sdc-hero-btn-text:hover .sdc-arrow {
-      transform: translateX(3px);
+      transform: translateX(0.1875rem);
     }
 
     /* --- RTL adjustments --- */
@@ -204,31 +204,31 @@ function sdc_hero_section_shortcode() {
     }
 
     .sdc-hero-section[dir="rtl"] .sdc-hero-btn-text:hover .sdc-arrow {
-      transform: translateX(-3px);
+      transform: translateX(-0.1875rem);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 48rem) {
       .sdc-hero-section {
         min-height: 75vh;
-        padding: 60px 20px;
+        padding: 3.75rem 1.25rem;
       }
 
       .sdc-hero-orb-container {
-        width: 500px;
+        width: 31.25rem;
         max-width: 140%;
       }
 
       .sdc-hero-orb {
-        filter: blur(3px);
+        filter: blur(0.1875rem);
       }
 
       .sdc-hero-headline {
         font-size: clamp(1.6rem, 6vw, 2.2rem);
-        margin-bottom: 32px;
+        margin-bottom: 2rem;
       }
 
       .sdc-hero-btn-outline {
-        padding: 10px 24px;
+        padding: 0.625rem 1.5rem;
         font-size: 0.8rem;
       }
 
