@@ -1156,7 +1156,7 @@ function sdc_devis_popup_render() {
                 <div class="sdc-devis-left-content-wrap">
                     <!-- Top Title -->
                     <h2 class="sdc-devis-left-title">
-                        <?php echo $panel_title_p1; ?> <br class="sdc-br-desktop">
+                        <?php echo $panel_title_p1; ?>
                         <span class="sdc-highlight">
                             <?php echo $panel_title_hl; ?>
                             <svg class="sdc-underline-curve" viewBox="0 0 100 12" preserveAspectRatio="none">
