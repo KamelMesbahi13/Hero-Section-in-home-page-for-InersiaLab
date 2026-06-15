@@ -898,6 +898,9 @@ function sdc_devis_popup_render() {
         direction: rtl;
         text-align: right;
     }
+    .sdc-devis-overlay[dir="rtl"] .sdc-devis-right {
+        background-image: radial-gradient(circle at 10% 85%, rgba(244, 96, 54, 0.07) 0%, transparent 65%) !important;
+    }
     .sdc-devis-overlay[dir="rtl"] .sdc-devis-btn-primary:hover .sdc-btn-arrow {
         transform: translateX(-3px);
     }
@@ -1006,7 +1009,7 @@ function sdc_devis_popup_render() {
             width: 100% !important;
             min-height: 0 !important;
             padding: 28px 24px 24px 24px !important;
-            background: #ffffff !important;
+            background-color: #ffffff !important;
             overflow-y: auto !important;
             overflow-x: hidden !important;
             overscroll-behavior: contain !important;
