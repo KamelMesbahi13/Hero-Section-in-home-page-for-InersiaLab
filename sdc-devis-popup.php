@@ -888,8 +888,10 @@ function sdc_devis_popup_render() {
         right: auto !important;
         left: 20px !important;
     }
-    .sdc-devis-overlay[dir="rtl"] .sdc-devis-popup {
-        flex-direction: row-reverse !important;
+    @media (min-width: 769px) {
+        .sdc-devis-overlay[dir="rtl"] .sdc-devis-popup {
+            flex-direction: row-reverse !important;
+        }
     }
     .sdc-devis-overlay[dir="rtl"] .sdc-devis-left,
     .sdc-devis-overlay[dir="rtl"] .sdc-devis-right {
