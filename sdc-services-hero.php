@@ -121,24 +121,29 @@ function sdc_services_hero_section_shortcode() {
       align-items: start;
     }
 
-    /* Description wrap with background dot pattern */
+    /* Description wrap with modern decorative glowing vector graphic */
     .sdc-sh-desc-wrap {
       position: relative;
       padding-top: 2.25rem;
       padding-left: 1.25rem;
     }
 
-    .sdc-sh-desc-wrap::before {
-      content: '';
+    .sdc-sh-decor-graphic {
       position: absolute;
       top: -2.5rem;
       left: -3.75rem;
-      width: 13.75rem;
-      height: 8.75rem;
-      background-image: radial-gradient(rgba(244, 96, 54, 0.3) 0.156rem, transparent 0.156rem);
-      background-size: 1.25rem 1.25rem;
+      width: 15rem;
+      height: 10rem;
+      background: radial-gradient(circle at 50% 50%, rgba(244, 96, 54, 0.12) 0%, rgba(244, 96, 54, 0) 70%);
+      filter: blur(1.25rem);
       z-index: 1;
       pointer-events: none;
+    }
+
+    .sdc-sh-decor-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
     }
 
     .sdc-sh-desc {
@@ -272,10 +277,13 @@ function sdc_services_hero_section_shortcode() {
       padding-right: 1.25rem;
     }
 
-    .sdc-services-hero[dir="rtl"] .sdc-sh-desc-wrap::before {
+    .sdc-services-hero[dir="rtl"] .sdc-sh-decor-graphic {
       left: auto;
       right: -3.75rem;
-      top: -2.5rem;
+    }
+
+    .sdc-services-hero[dir="rtl"] .sdc-sh-decor-svg {
+      transform: scaleX(-1); /* Mirror the abstract waves in RTL */
     }
 
     .sdc-services-hero[dir="rtl"] .sdc-sh-card-title {
@@ -323,13 +331,13 @@ function sdc_services_hero_section_shortcode() {
         padding-right: 0;
       }
 
-      .sdc-sh-desc-wrap::before {
+      .sdc-sh-decor-graphic {
         width: 11.25rem;
         height: 6.25rem;
         left: -1.25rem !important;
         top: -1.25rem !important;
       }
-      .sdc-services-hero[dir="rtl"] .sdc-sh-desc-wrap::before {
+      .sdc-services-hero[dir="rtl"] .sdc-sh-decor-graphic {
         left: auto !important;
         right: -1.25rem !important;
         top: -1.25rem !important;
@@ -366,6 +374,23 @@ function sdc_services_hero_section_shortcode() {
         <!-- Top Section: Asymmetrical Grid -->
         <div class="sdc-sh-top">
           <div class="sdc-sh-desc-wrap">
+            <div class="sdc-sh-decor-graphic" aria-hidden="true">
+              <svg viewBox="0 0 240 180" fill="none" class="sdc-sh-decor-svg">
+                <defs>
+                  <linearGradient id="sdc-decor-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#F46036" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="#F46036" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient id="sdc-decor-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#F46036" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="#F46036" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d="M -20,90 Q 60,10 140,90 T 300,90" stroke="url(#sdc-decor-grad-1)" stroke-width="2" fill="none" />
+                <path d="M -20,110 Q 70,30 160,110 T 340,110" stroke="url(#sdc-decor-grad-2)" stroke-width="1.5" fill="none" />
+                <path d="M -20,70 Q 50,0 120,70 T 260,70" stroke="url(#sdc-decor-grad-1)" stroke-width="1" stroke-dasharray="4,4" fill="none" opacity="0.4" />
+              </svg>
+            </div>
             <p class="sdc-sh-desc"><?php echo esc_html($desc); ?></p>
           </div>
           <h1 class="sdc-sh-headline"><?php echo esc_html($headline); ?></h1>
