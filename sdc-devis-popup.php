@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * SDC Devis Popup — Multi-Step Bilingual Contact Form
  *
@@ -41,7 +41,7 @@ function sdc_devis_handle_submission() {
 
     $body = '<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">'
         . '<div style="background:#1a1a1a;padding:24px 32px;border-radius:12px 12px 0 0;">'
-        . '<h2 style="color:#F46036;margin:0;font-size:20px;">📋 Nouvelle Demande de Devis</h2>'
+        . '<h2 style="color:#FF8C61;margin:0;font-size:20px;">📋 Nouvelle Demande de Devis</h2>'
         . '</div>'
         . '<div style="background:#ffffff;padding:32px;border:1px solid #eee;border-top:none;border-radius:0 0 12px 12px;">'
         . '<table style="width:100%;border-collapse:collapse;">'
@@ -52,7 +52,7 @@ function sdc_devis_handle_submission() {
         . '<tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#666;">Nom complet</td>'
         . '<td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#1a1a1a;font-weight:600;">' . esc_html( $fullname ) . '</td></tr>'
         . '<tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#666;">Email</td>'
-        . '<td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#1a1a1a;font-weight:600;"><a href="mailto:' . esc_attr( $email ) . '" style="color:#F46036;">' . esc_html( $email ) . '</a></td></tr>'
+        . '<td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#1a1a1a;font-weight:600;"><a href="mailto:' . esc_attr( $email ) . '" style="color:#FF8C61;">' . esc_html( $email ) . '</a></td></tr>'
         . '<tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#666;">Téléphone</td>'
         . '<td style="padding:12px 0;border-bottom:1px solid #f0f0f0;color:#1a1a1a;font-weight:600;">' . esc_html( $phone ) . '</td></tr>'
         . '<tr><td style="padding:12px 0;color:#666;vertical-align:top;">Brief projet</td>'
@@ -281,7 +281,7 @@ function sdc_devis_popup_render() {
     .sdc-devis-left {
         flex: 0 0 50%; /* 50% width */
         background: #0D1B2A !important;
-        background-image: radial-gradient(circle at 90% 80%, rgba(244, 96, 54, 0.08) 0%, transparent 65%) !important;
+        background-image: radial-gradient(circle at 90% 80%, rgba(255, 140, 97, 0.08) 0%, transparent 65%) !important;
         padding: 48px 40px !important;
         display: flex;
         flex-direction: column;
@@ -343,7 +343,7 @@ function sdc_devis_popup_render() {
     .sdc-check-svg {
         flex-shrink: 0;
         margin-top: 3px;
-        color: #F46036 !important; /* Changed green to brand orange */
+        color: #FF8C61 !important; /* Changed green to brand orange */
     }
 
     /* Book a Call Badge */
@@ -375,7 +375,7 @@ function sdc_devis_popup_render() {
         width: 24px;
         height: 24px;
         border-radius: 50%;
-        background: #F46036 !important; /* Changed green to brand orange */
+        background: #FF8C61 !important; /* Changed green to brand orange */
         color: #ffffff !important;
         flex-shrink: 0;
     }
@@ -425,14 +425,14 @@ function sdc_devis_popup_render() {
         transition: color 0.2s ease;
     }
     .sdc-devis-contact-email:hover {
-        color: #F46036 !important;
+        color: #FF8C61 !important;
     }
  
     /* ═══ RIGHT PANEL ═════════════════════════════════════════════ */
     .sdc-devis-right {
         flex: 1 1 50%; /* 50% width, can shrink/grow */
         background: #ffffff !important;
-        background-image: radial-gradient(circle at 90% 85%, rgba(244, 96, 54, 0.07) 0%, transparent 65%) !important; /* Orange gradient glow in bottom-right */
+        background-image: radial-gradient(circle at 90% 85%, rgba(255, 140, 97, 0.07) 0%, transparent 65%) !important; /* Orange gradient glow in bottom-right */
         padding: 44px 40px;
         overflow-y: auto;
         overflow-x: hidden;
@@ -460,7 +460,7 @@ function sdc_devis_popup_render() {
     .sdc-dot.sdc-active {
         width: 28px;
         border-radius: 4px;
-        background: #F46036;
+        background: #FF8C61;
     }
 
     /* ── Step Title ── */
@@ -547,15 +547,15 @@ function sdc_devis_popup_render() {
         text-transform: none !important;
     }
     .sdc-devis-overlay button.sdc-chip:hover {
-        border-color: #F46036 !important;
-        color: #F46036 !important;
-        background: rgba(244, 96, 54, 0.04) !important;
+        border-color: #FF8C61 !important;
+        color: #FF8C61 !important;
+        background: rgba(255, 140, 97, 0.04) !important;
     }
     .sdc-devis-overlay button.sdc-chip.sdc-selected {
-        background: #F46036 !important;
-        border-color: #F46036 !important;
+        background: #FF8C61 !important;
+        border-color: #FF8C61 !important;
         color: #ffffff !important;
-        box-shadow: 0 4px 12px rgba(244, 96, 54, 0.2) !important;
+        box-shadow: 0 4px 12px rgba(255, 140, 97, 0.2) !important;
     }
 
     /* Input */
@@ -573,8 +573,8 @@ function sdc_devis_popup_render() {
     }
     .sdc-devis-input:focus {
         background: #ffffff;
-        border-color: #F46036;
-        box-shadow: 0 0 0 3px rgba(244, 96, 54, 0.08);
+        border-color: #FF8C61;
+        box-shadow: 0 0 0 3px rgba(255, 140, 97, 0.08);
     }
     .sdc-devis-input::placeholder,
     .sdc-devis-textarea::placeholder {
@@ -598,8 +598,8 @@ function sdc_devis_popup_render() {
     }
     .sdc-devis-textarea:focus {
         background: #ffffff;
-        border-color: #F46036;
-        box-shadow: 0 0 0 3px rgba(244, 96, 54, 0.08);
+        border-color: #FF8C61;
+        box-shadow: 0 0 0 3px rgba(255, 140, 97, 0.08);
     }
 
     /* Row (side-by-side fields) */
@@ -682,7 +682,7 @@ function sdc_devis_popup_render() {
     .sdc-devis-overlay .sdc-devis-btn-primary:hover {
         border-color: transparent !important;
         color: #ffffff !important;
-        box-shadow: 0 6px 20px rgba(244, 96, 54, 0.15) !important;
+        box-shadow: 0 6px 20px rgba(255, 140, 97, 0.15) !important;
     }
 
     .sdc-devis-overlay .sdc-devis-btn-primary::before {
@@ -692,7 +692,7 @@ function sdc_devis_popup_render() {
         top: 4px !important;
         height: 48px !important; 
         width: 48px !important;  
-        background-color: #F46036 !important;
+        background-color: #FF8C61 !important;
         border-radius: 12px !important;
         z-index: 1 !important;
         transition: all 0.75s cubic-bezier(0.25, 1, 0.5, 1) !important;
@@ -751,7 +751,7 @@ function sdc_devis_popup_render() {
         width: 20px;
         height: 20px;
         border: 2px solid rgba(0,0,0,0.1);
-        border-top-color: #F46036;
+        border-top-color: #FF8C61;
         border-radius: 50%;
         animation: sdcSpin 0.6s linear infinite;
         position: absolute !important;
@@ -786,7 +786,7 @@ function sdc_devis_popup_render() {
         transition: color 0.25s ease !important;
     }
     .sdc-devis-overlay button.sdc-devis-btn-back:hover {
-        color: #F46036 !important;
+        color: #FF8C61 !important;
         background: transparent !important;
     }
 
@@ -832,14 +832,14 @@ function sdc_devis_popup_render() {
     .sdc-devis-success-icon {
         width: 72px;
         height: 72px;
-        background: linear-gradient(135deg, #F46036, #e04f28);
+        background: linear-gradient(135deg, #FF8C61, #e04f28);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-bottom: 24px;
         animation: sdcScaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
-        box-shadow: 0 8px 24px rgba(244, 96, 54, 0.3);
+        box-shadow: 0 8px 24px rgba(255, 140, 97, 0.3);
     }
     .sdc-devis-success-title {
         font-family: inherit;
@@ -899,7 +899,7 @@ function sdc_devis_popup_render() {
         text-align: right;
     }
     .sdc-devis-overlay[dir="rtl"] .sdc-devis-right {
-        background-image: radial-gradient(circle at 10% 85%, rgba(244, 96, 54, 0.07) 0%, transparent 65%) !important;
+        background-image: radial-gradient(circle at 10% 85%, rgba(255, 140, 97, 0.07) 0%, transparent 65%) !important;
     }
     .sdc-devis-overlay[dir="rtl"] .sdc-devis-btn-primary:hover .sdc-btn-arrow {
         transform: translateX(-3px);
@@ -1163,8 +1163,8 @@ function sdc_devis_popup_render() {
                         <span class="sdc-highlight">
                             <?php echo $panel_title_hl; ?>
                             <svg class="sdc-underline-curve" viewBox="0 0 100 12" preserveAspectRatio="none">
-                                <path d="M3 8 Q 50 3, 97 8" stroke="#F46036" stroke-width="2" fill="none" stroke-linecap="round"/>
-                                <path d="M8 11 Q 50 6, 92 11" stroke="#F46036" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <path d="M3 8 Q 50 3, 97 8" stroke="#FF8C61" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <path d="M8 11 Q 50 6, 92 11" stroke="#FF8C61" stroke-width="2" fill="none" stroke-linecap="round"/>
                             </svg>
                         </span> <br class="sdc-br-desktop">
                         <?php echo $panel_title_p2; ?>
@@ -1691,3 +1691,4 @@ function sdc_devis_popup_render() {
     <?php
 }
 add_action( 'wp_footer', 'sdc_devis_popup_render' );
+
