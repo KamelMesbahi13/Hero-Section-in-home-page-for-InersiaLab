@@ -72,8 +72,8 @@ function sdc_hero_section_shortcode() {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 53.125rem;
-      max-width: 95%;
+      width: 26.5625rem;
+      max-width: 47.5%;
       height: auto;
       pointer-events: none;
       z-index: 1;
@@ -214,8 +214,8 @@ function sdc_hero_section_shortcode() {
       }
 
       .sdc-hero-orb-container {
-        width: 31.25rem;
-        max-width: 140%;
+        width: 15.625rem;
+        max-width: 70%;
       }
 
       .sdc-hero-orb {
@@ -240,7 +240,7 @@ function sdc_hero_section_shortcode() {
 
     <section class="sdc-hero-section" dir="<?php echo $dir; ?>">
       <div class="sdc-hero-orb-container" aria-hidden="true">
-        <img src="https://inersialab.com/wp-content/uploads/2026/06/inersialab_logo_icon_transparent.png" class="sdc-hero-orb" alt="" />
+        <img src="https://inersialab.com/wp-content/uploads/2026/06/icon_orange300ppi.png" class="sdc-hero-orb" alt="" />
       </div>
       <div class="sdc-hero-content">
         <h1 class="sdc-hero-headline">
