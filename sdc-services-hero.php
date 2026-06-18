@@ -1,19 +1,5 @@
 <?php
-/**
- * SDC Services Hero Section — WordPress Shortcode
- * 
- * Usage: [sdc_services_hero]
- * 
- * Paste this entire snippet into Code Snippets plugin (Functions type).
- * Then add [sdc_services_hero] in a Shortcode block on your services page.
- * 
- * Design Details:
- * - Clean modern web layout with asymmetrical 2-column description/headline.
- * - Dot grid background pattern under the description.
- * - Row of 3 card/links with top border hover animations.
- * - Full width bottom team workspace image with soft brand gradient filter.
- * - Supports French and Arabic (RTL) out of the box.
- */
+
 
 function sdc_services_hero_section_shortcode() {
     // Detect Arabic from URL
@@ -134,7 +120,7 @@ function sdc_services_hero_section_shortcode() {
       left: -3.75rem;
       width: 15rem;
       height: 10rem;
-      background: radial-gradient(circle at 50% 50%, rgba(244, 96, 54, 0.12) 0%, rgba(244, 96, 54, 0) 70%);
+      background: radial-gradient(circle at 50% 50%, rgba(255, 140, 97, 0.12) 0%, rgba(255, 140, 97, 0) 70%);
       filter: blur(1.25rem);
       z-index: 1;
       pointer-events: none;
@@ -183,7 +169,7 @@ function sdc_services_hero_section_shortcode() {
     }
 
     .sdc-sh-card:hover {
-      border-top-color: #F46036; /* Brand orange color */
+      border-top-color: #FF8C61; /* Brand orange color */
     }
 
     .sdc-sh-card-header {
@@ -203,7 +189,7 @@ function sdc_services_hero_section_shortcode() {
     }
 
     .sdc-sh-card:hover .sdc-sh-card-title {
-      color: #F46036;
+      color: #FF8C61;
     }
 
     .sdc-sh-card-icon-wrap {
@@ -216,7 +202,7 @@ function sdc_services_hero_section_shortcode() {
     }
 
     .sdc-sh-card:hover .sdc-sh-card-icon-wrap {
-      color: #F46036 !important;
+      color: #FF8C61 !important;
       opacity: 1 !important;
       transform: scale(1.1);
     }
@@ -251,7 +237,7 @@ function sdc_services_hero_section_shortcode() {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       /* Gradient tint blending navy overlay with a soft orange accent gradient */
-      background: linear-gradient(135deg, rgba(13, 27, 42, 0.22) 0%, rgba(244, 96, 54, 0.06) 100%);
+      background: linear-gradient(135deg, rgba(13, 27, 42, 0.22) 0%, rgba(255, 140, 97, 0.06) 100%);
       pointer-events: none;
     }
 
@@ -378,12 +364,12 @@ function sdc_services_hero_section_shortcode() {
               <svg viewBox="0 0 240 180" fill="none" class="sdc-sh-decor-svg">
                 <defs>
                   <linearGradient id="sdc-decor-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#F46036" stop-opacity="0.35" />
-                    <stop offset="100%" stop-color="#F46036" stop-opacity="0" />
+                    <stop offset="0%" stop-color="#FF8C61" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="#FF8C61" stop-opacity="0" />
                   </linearGradient>
                   <linearGradient id="sdc-decor-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#F46036" stop-opacity="0.25" />
-                    <stop offset="100%" stop-color="#F46036" stop-opacity="0" />
+                    <stop offset="0%" stop-color="#FF8C61" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="#FF8C61" stop-opacity="0" />
                   </linearGradient>
                 </defs>
                 <path d="M -20,90 Q 60,10 140,90 T 300,90" stroke="url(#sdc-decor-grad-1)" stroke-width="2" fill="none" />

@@ -141,8 +141,8 @@ function sdc_hero_section_shortcode() {
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: #ffffff;
-      background: #F46036;
-      border: 0.094rem solid #F46036;
+      background: #FF8C61;
+      border: 0.094rem solid #FF8C61;
       border-radius: 3.125rem;
       padding: 0.75rem 1.75rem;
       cursor: pointer;
@@ -153,7 +153,7 @@ function sdc_hero_section_shortcode() {
     .sdc-hero-btn-outline:hover,
     .sdc-hero-btn-outline:focus {
       background: transparent;
-      color: #F46036;
+      color: #FF8C61;
     }
 
     .sdc-hero-btn-text {
@@ -165,7 +165,7 @@ function sdc_hero_section_shortcode() {
       font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #F46036;
+      color: #FF8C61;
       background: none;
       border: none;
       cursor: pointer;

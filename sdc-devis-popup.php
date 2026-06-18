@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * SDC Devis Popup — Multi-Step Bilingual Contact Form
  *
@@ -832,7 +832,7 @@ function sdc_devis_popup_render() {
     .sdc-devis-success-icon {
         width: 72px;
         height: 72px;
-        background: linear-gradient(135deg, #FF8C61, #e04f28);
+        background: linear-gradient(135deg, #FF8C61, #E57246);
         border-radius: 50%;
         display: flex;
         align-items: center;
